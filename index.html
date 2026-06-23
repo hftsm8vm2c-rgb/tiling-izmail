@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TILING-IZMAIL | Плиткові роботи</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#0b0b0b;
+color:#fff;
+overflow-x:hidden;
+}
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#f39c12;
+border-radius:20px;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:url('hero.jpg') center center/cover fixed no-repeat;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,.8),
+rgba(0,0,0,.55)
+);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+padding:20px;
+animation:fadeUp 1.2s ease;
+}
+
+.brand{
+color:#f39c12;
+font-size:18px;
+letter-spacing:4px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.location{
+color:#cfcfcf;
+margin-bottom:15px;
+}
+
+.hero h1{
+font-size:clamp(50px,8vw,90px);
+margin-bottom:15px;
+text-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+
+.hero p{
+font-size:22px;
+color:#ddd;
+margin-bottom:35px;
+}
+
+.btn{
+display:inline-block;
+padding:18px 40px;
+background:#f39c12;
+color:white;
+text-decoration:none;
+border-radius:14px;
+font-size:20px;
+font-weight:bold;
+transition:.3s;
+box-shadow:0 15px 35px rgba(243,156,18,.4);
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+/* SECTIONS */
+
+section{
+padding:90px 10%;
+}
+
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:50px;
+}
+
+.section-title::after{
+content:"";
+display:block;
+width:80px;
+height:4px;
+background:#f39c12;
+margin:15px auto 0;
+border-radius:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:#171717;
+padding:30px;
+border-radius:20px;
+transition:.35s;
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+border:1px solid rgba(255,255,255,.05);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 25px 50px rgba(0,0,0,.5);
+}
+
+.card h3{
+color:#f39c12;
+margin-bottom:10px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:20px;
+transition:.4s;
+box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* CONTACTS */
+
+.contacts{
+background:#141414;
+}
+
+.contact-box{
+background:#1c1c1c;
+padding:25px;
+border-radius:18px;
+margin:15px auto;
+max-width:500px;
+transition:.3s;
+text-align:center;
+}
+
+.contact-box:hover{
+transform:translateY(-6px);
+}
+
+.contact-box h3{
+color:#f39c12;
+margin-bottom:10px;
+}
+
+.contact-box a{
+color:white;
+font-size:22px;
+text-decoration:none;
+}
+
+/* SOCIAL */
+
+.social{
+text-align:center;
+}
+
+.tiktok-btn{
+display:inline-block;
+padding:18px 35px;
+background:#1c1c1c;
+border-radius:14px;
+text-decoration:none;
+color:white;
+font-size:20px;
+transition:.3s;
+}
+
+.tiktok-btn:hover{
+background:#f39c12;
+}
+
+/* FLOAT BUTTON */
+
+.float{
+position:fixed;
+left:20px;
+bottom:20px;
+width:75px;
+height:75px;
+border-radius:50%;
+background:#25D366;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:34px;
+text-decoration:none;
+z-index:9999;
+box-shadow:0 15px 35px rgba(0,0,0,.4);
+animation:pulse 2s infinite;
+}
+
+.float:hover{
+transform:scale(1.1);
+}
+
+/* FOOTER */
+
+footer{
+padding:25px;
+text-align:center;
+color:#888;
+background:#080808;
+}
+
+/* ANIMATIONS */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes pulse{
+0%{
+box-shadow:0 0 0 0 rgba(37,211,102,.7);
+}
+70%{
+box-shadow:0 0 0 20px rgba(37,211,102,0);
+}
+100%{
+box-shadow:0 0 0 0 rgba(37,211,102,0);
+}
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:50px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.section-title{
+font-size:32px;
+}
+
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+
+<div class="hero-content">
+
+<div class="brand">
+TILING-IZMAIL
+</div>
+
+<div class="location">
+Ізмаїл та Одеська область
+</div>
+
+<h1>Плиткові роботи</h1>
+
+<p>
+Професійне укладання плитки будь-якої складності.
+Якість, акуратність та гарантія результату.
+</p>
+
+<a href="tel:+380989251260" class="btn">
+📞 Зателефонувати
+</a>
+
+</div>
+
+</header>
+
+<section class="reveal">
+
+<h2 class="section-title">Наші послуги</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Укладання плитки</h3>
+<p>від 450 грн/м²</p>
+</div>
+
+<div class="card">
+<h3>Керамограніт</h3>
+<p>від 600 грн/м²</p>
+</div>
+
+<div class="card">
+<h3>Ванна кімната під ключ</h3>
+<p>від 15 000 грн</p>
+</div>
+
+<div class="card">
+<h3>Кухонний фартух</h3>
+<p>від 2 500 грн</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="reveal">
+
+<h2 class="section-title">Наші роботи</h2>
+
+<div class="gallery">
+
+<img src="work1.jpg" alt="Робота 1">
+<img src="work2.jpg" alt="Робота 2">
+<img src="work3.jpg" alt="Робота 3">
+<img src="work4.jpg" alt="Робота 4">
+<img src="work5.jpg" alt="Робота 5">
+<img src="work6.jpg" alt="Робота 6">
+
+</div>
+
+</section>
+
+<section class="reveal">
+
+<h2 class="section-title">Чому обирають нас</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>10+ років досвіду</h3>
+<p>Професійний підхід до кожного об'єкта.</p>
+</div>
+
+<div class="card">
+<h3>Гарантія якості</h3>
+<p>Працюємо на результат та репутацію.</p>
+</div>
+
+<div class="card">
+<h3>Сучасні технології</h3>
+<p>Точне укладання та рівні шви.</p>
+</div>
+
+<div class="card">
+<h3>Чесні ціни</h3>
+<p>Без прихованих платежів.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="contacts reveal">
+
+<h2 class="section-title">Контакти</h2>
+
+<div class="contact-box">
+<h3>Сергій</h3>
+<a href="tel:+380989251260">
++380 98 925 12 60
+</a>
+</div>
+
+<div class="contact-box">
+<h3>Григорій</h3>
+<a href="tel:+380985406364">
++380 98 540 63 64
+</a>
+</div>
+
+</section>
+
+<section class="social reveal">
+
+<h2 class="section-title">Наш TikTok</h2>
+
+<a
+class="tiktok-btn"
+href="https://www.tiktok.com/@tiling.izmail?_r=1"
+target="_blank">
+🎵 TikTok
+</a>
+
+</section>
+
+<footer>
+© 2026 TILING-IZMAIL
+</footer>
+
+<a href="tel:+380989251260" class="float">
+📞
+</a>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+reveals.forEach(item => {
+const top = item.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+item.classList.add('active');
+}
+});
+});
+</script>
+
+</body>
+</html>
